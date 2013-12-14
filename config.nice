@@ -1,0 +1,7 @@
+#! /bin/sh
+#
+# Created by configure
+
+'/tmp/pear/cache/tidy-1.2/configure' \
+'--with-tidy' \
+"$@"
