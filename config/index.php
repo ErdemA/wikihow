@@ -255,7 +255,7 @@ class ConfigData {
 				$this->DBmysql5 = 'true';
 				break;
 			default:
-				$this->DBTableOptions = "TYPE=$engine";
+				$this->DBTableOptions = "ENGINE=$engine";
 				$this->DBmysql5 = 'false';
 		}
 		$this->DBengine = $engine;

@@ -568,7 +568,7 @@ $wgSearchType	    = null;
 /** Table name prefix */
 $wgDBprefix         = '';
 /** MySQL table options to use during installation or update */
-$wgDBTableOptions = 'TYPE=InnoDB';
+$wgDBTableOptions = 'ENGINE=InnoDB';
 
 /**#@-*/
 

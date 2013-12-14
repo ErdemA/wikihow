@@ -2,7 +2,8 @@
 /**
  * MediaWiki is the to-be base class for this whole project
  */
-
+require_once( "$IP/extensions/wikihow/video/VideoPage.class.php");
+//require_once( "$IP/extensions/wikihow/video/Importvideo.php");
 class MediaWiki {
 
 	var $GET; /* Stores the $_GET variables at time of creation, can be changed */

@@ -9,6 +9,11 @@ if ( !class_exists( 'UtfNormal' ) ) {
 	require_once( dirname(__FILE__) . '/normal/UtfNormal.php' );
 }
 
+if ( !class_exists( 'Misc' ) ) {
+	require_once( dirname(__FILE__) . '/../extensions/wikihow/Misc.php' );
+}
+
+
 define ( 'GAID_FOR_UPDATE', 1 );
 
 # Title::newFromTitle maintains a cache to avoid
