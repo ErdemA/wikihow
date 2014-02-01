@@ -45,4 +45,4 @@ $wgLogNames['vidsfornew']   = 'vidsfornew';
 $wgLogHeaders['vidsfornew'] = 'vidsfornewtext';
 $wgLogActions['vidsfornew/added'] = 'vidsfornew_logsummary';
 
-$wgHowcastAPIKey = WH_HOWCAST_API_KEY;
+//$wgHowcastAPIKey = WH_HOWCAST_API_KEY;

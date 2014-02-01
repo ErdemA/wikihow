@@ -824,6 +824,8 @@ class Database {
 			$this->reportQueryError( $this->lastError(), $this->lastErrno(), $sql, $fname, $tempIgnore );
 		}
 
+		if (!defined('IS_PROD_EN_SITE')) define('IS_PROD_EN_SITE', true);
+		
 		if ( !$wgCommandLineMode && IS_PROD_EN_SITE && $LOG_SLOW > 0 ) {
 			$total = microtime(true) - $startTime;
 			if ( $total >= $LOG_SLOW ) {
