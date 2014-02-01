@@ -45,7 +45,7 @@ class ReprocessAllAMI {
             if ($title) {
                 $ami = new ArticleMetaInfo($title, true);
                 $ami->refreshMetaData($style);
-				if (@$count++ % 1000 == 0 && $count > 0) print "done $count\n";
+				if (@$count++ % 10000 == 0 && $count > 0) print date('r') . " done $count\n";
 				sleep(2); // roll out slowly to prevent overwhelming servers with new image requests
             } else {
                 print "title not found: $page\n";

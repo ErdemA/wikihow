@@ -258,3 +258,4 @@ require_once("$IP/extensions/wikihow/ArticleViewer/ArticleViewer.php");
 require_once("$IP/extensions/wikihow/Notifications.class.php");
 require_once("$IP/extensions/wikihow/ApiCategoryListing.php");
 require_once("$IP/extensions/wikihow/userstaffwidget/UserStaffWidget.php");
+require_once("$IP/extensions/wikihow/optimizely/OptimizelyPageSelector.php");

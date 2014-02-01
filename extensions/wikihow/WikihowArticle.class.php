@@ -1206,7 +1206,6 @@ class WikihowArticleHTML {
 
 		if($ads) {
 			pq("#intro")->append(wikihowAds::getAdUnitPlaceholder('intro'));
-			pq("#originators")->after(wikihowAds::getAdUnitPlaceholder('test1'));
 			pq(".steps_list_2:first li:first")->append(wikihowAds::getAdUnitPlaceholder(0));
 			pq(".final_li")->append(wikihowAds::getAdUnitPlaceholder(1));
 

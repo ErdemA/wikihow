@@ -204,7 +204,8 @@ class LSearch extends SpecialPage {
 			$results[] = array(
 				'title_match' => $t,
 				'url' => $url,
-				'key' => $key
+				'key' => $key,
+				'id' => $tobj->getArticleId()
 			);
 		}
 		return $results;
@@ -239,17 +240,17 @@ class LSearch extends SpecialPage {
 		if ($results === null) {
 			$results = array();
 
-			$keys = array();
+			$ids = array();
 			foreach ($titles as $title) {
-				$keys[] = $title['key'];
+				$ids[] = $title['id'];
 			}
 
-			if (count($keys) == 0) {
+			if (count($ids) == 0) {
 				return $results;
 			}
 
 			$dbr = wfGetDB(DB_SLAVE);
-			$sql = 'SELECT * FROM search_results WHERE sr_title IN (' . $dbr->makeList($keys) . ')';
+			$sql = 'SELECT * FROM search_results WHERE sr_id IN (' . $dbr->makeList($ids) . ')';
 			$res = $dbr->query($sql);
 			$rows = array();
 			while ( $row = $dbr->fetchRow( $res ) ) {

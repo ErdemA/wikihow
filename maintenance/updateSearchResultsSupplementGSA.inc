@@ -133,7 +133,7 @@ function addSearchResultsArticle(&$dbw, &$dbr, &$row, $startProcessing) {
 		if (!$steps) $steps = '';
 
 		$img = Wikitext::getTitleImage($titleObj);
-		$imgTitleText = $img->getTitle() ? $img->getTitle()->getText() : '';
+		$imgTitleText = $img && $img->getTitle() ? $img->getTitle()->getText() : '';
 		$imgEnc = $dbr->strencode($imgTitleText);
 
 		$thumbUrl100 = '';

@@ -1931,16 +1931,12 @@ class WikiHowTemplate extends QuickTemplate {
 		$slowSpeedUsers = array('BR');
 		$isSlowSpeedUser = $wgUser && in_array($wgUser->getName(), $slowSpeedUsers);
 
-		$showOptimizelyJS = false;
-		/* $optimizelyArticles = array(
-			'Special:DocViewer/Chronological-Resume' => 1,
-			'Special:DocViewer/Business-Letter' => 1,
-			'Special:DocViewer/Jury-Duty-Excuse' => 1,
-		);
-		$requestURI = @$wgRequest->getVal('title');
-		if (isset($optimizelyArticles[$requestURI])) {
-			$showOptimizelyJS = true;
-		} */
+		$optimizelyJS = false;
+		if(class_exists('OptimizelyPageSelector') && $wgTitle && $wgTitle->exists()) {	
+			if(OptimizelyPageSelector::isArticleEnabled($wgTitle) && OptimizelyPageSelector::isUserEnabled($wgUser)) {
+				$optimizelyJS = OptimizelyPageSelector::getOptimizelyTag();	
+			}
+		}
 
 		$showSpotlightRotate =
 			$isMainPage &&
@@ -2126,9 +2122,6 @@ UVPERF.start = new Date().getTime();
 	<meta name="msvalidate.01" content="CFD80128CAD3E726220D4C2420D539BE" />
 	<meta name="y_key" content="1b3ab4fc6fba3ab3" />
 	<meta name="p:domain_verify" content="bb366527fa38aa5bc27356b728a2ec6f" />
-	<? if ($showOptimizelyJS): ?>
-		<script src="//cdn.optimizely.com/js/175639188.js"></script>
-	<? endif; ?>
 	<? if ($isArticlePage || $isMainPage): ?>
 	<link rel="alternate" media="only screen and (max-width: 640px)" href="http://<?php if($wgLanguageCode != 'en') { echo ($wgLanguageCode . "."); } ?>m.wikihow.com/<?= $wgTitle->getPartialUrl() ?>">
 	<? endif; ?>
@@ -2178,6 +2171,7 @@ UVPERF.start = new Date().getTime();
 	}
 	?>
 	<?= $wgOut->getHeadItems() ?>
+			
 	<? if($wgTitle && $wgTitle->getText() == "Get Caramel off Pots and Pans") {
 		echo wfMsg('Adunit_test_top');
 	} ?>
@@ -2593,6 +2587,7 @@ UVPERF.start = new Date().getTime();
 		<? if ($postLoadJS): ?>
 			<script type="text/javascript" src="<?= $fullJSuri ?>"></script>
 		<? endif; ?>
+		<?php if ($optimizelyJS) { print $optimizelyJS; } ?>
 
 		<? if ($showExitTimer): ?>
 			<script>

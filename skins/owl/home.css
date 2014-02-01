@@ -78,9 +78,7 @@
 
 @font-face {
 	font-family:'CompleteInHimPro';
-	src: 	url('/skins/owl/2211C6_0_0.eot') format('embedded-opentype'),
-			url('/skins/owl/2211C6_0_0.woff') format('woff'),
-			url('/skins/owl/2211C6_0_0.ttf') format('truetype');
+	src: url(/skins/owl/2211C6_0_0.eot) format('embedded-opentype'), url(/skins/owl/2211C6_0_0.woff) format('woff'), url(/skins/owl/2211C6_0_0.ttf) format('truetype');
 }
 .CompleteInHimPro {font-family:CompleteInHimPro; font-weight:normal; font-style:normal;}
 

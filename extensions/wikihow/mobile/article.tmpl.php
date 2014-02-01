@@ -101,12 +101,6 @@
 <?= MobileHtmlBuilder::showDeferredJS($deviceOpts) ?>
 <?= MobileHtmlBuilder::showBootStrapScript() ?>
 
-		<? if (@$deviceOpts['show-ads']): ?>
-		<div class="wh_ad">
-			<?= wfMsg('adunitmobile2'); ?>
-		</div>
-		<? endif; ?>
-
 		
 		<div id="final_section_cap"></div>
 		<div id="final_section">
